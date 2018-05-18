@@ -1,0 +1,18 @@
+.no-padding{padding:0 !important;}
+.no-padding-left{padding-left: 0px !important;}
+.no-padding-right{padding-right: 0px !important;}
+.club-color{
+    color:#b30538;
+    border-color:#b30538;
+}
+.pink{color:#f39b9c !important;;}
+.pink a{color:#f39b9c !important;;}
+.gray{color:#9c9c9c;}
+
+.member-logo{width: 64px; max-height:64px; border-radius: 64px;}
+.member-info{vertical-align: middle;}
+.page-header {
+    padding-bottom: 9px;
+    margin: 20px 0 20px;
+    border-bottom: 1px solid #eee;
+}

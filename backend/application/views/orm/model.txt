@@ -1,0 +1,20 @@
+/*
+#postData
+*/
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * 数据模型说明
+ * #modelComment
+ * @author jian-jie.fu <fulusu@vip.sina.com>
+ * @addTime  #addTime
+ */
+class #modelName extends MY_Model {
+
+	public $tableName = '#tableName';
+
+	public function __construct() {
+		parent::__construct();
+	}
+	
+}

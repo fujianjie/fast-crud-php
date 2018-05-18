@@ -1,0 +1,36 @@
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * #controllerComment
+ * @addTime  #addTime
+ * @author  #name<#email>
+ */
+class #className extends MY_Data {
+
+	public function __construct() {
+		parent::__construct();
+		$this->controllerName = '#controllerComment';
+		$this->tableName = '#tableName';
+		$this->keyNameList = array(#keyNameList);
+		$this->keyTypeList = array(#keyTypeList);
+		$this->keyVerifyList = array(#keyVerifyList);
+		//关键词模糊搜索 searchType = total   分词搜索  searchType = key
+		//$this->searchType= 'key';
+		$this->searchKey=array(#searchKey);
+		$this->keySqlType = array(#keySqlType);
+		$this->keyImportant = array(#keyImportant);
+		$this->detailKey = array(#detailKey);
+		$this->addKey = array(#addKey);
+		$this->editKey = array(#editKey);
+		$this->listKey = array(#listKey);
+		$this->keySelectData = array(#keySelectData);
+		//关闭综合搜索
+		$this->searchPageOpen = false;
+		//关闭排序
+        $this->listSortOpen = false;
+        $this->load->model('#modelName');
+	}
+
+}
+
