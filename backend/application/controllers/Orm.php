@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * 3. 建立MODEL 文件
  * 4. 建立CONTROLLER 文件
  *
- * @author jian-jie.fu<79984034@qq.com>
- * @version  0.1
+ * @author jian-jie.fu<jian-jie.fu@we-ideas.com>
+ * @version  1.0
  */
 class Orm extends MY_Controller
 {
@@ -185,8 +185,7 @@ class Orm extends MY_Controller
      * 需要转义的数据类型
      */
     public $needChangeType = array(
-        'file', 'image', 'images', 'select', 'radio', 'checkbox', 'bool',
-        'area'
+        'file','files', 'image', 'images', 'select', 'radio', 'checkbox', 'bool'
     );
 
     public function getHash()
