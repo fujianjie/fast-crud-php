@@ -324,6 +324,12 @@ class TpForm
         return $html;
     }
 
+    static public function text($name, $kname, $value, $selectData, $isNeeded = 0)
+    {
+        $html = '<div class="form-group form-textarea"><label class="col-sm-3 control-label" for="form-' . $kname . '">' . $name . '：</label><div class="col-sm-9"><div class="col-sm-12"><textarea class="form-control" rows="5" name="' . $kname . '" id="form-' . $kname . '">' . $value . '</textarea></div><p class=" col-sm-12 error-msg"></p></div></div><div></div>';
+        return $html;
+    }
+
     /**
      * html 在线编辑器
      *
