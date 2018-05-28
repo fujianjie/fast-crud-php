@@ -49,7 +49,7 @@ class Orm extends MY_Controller
         'textarea' => 'text',
         'image' => 'varchar(255)',
         'images' => 'text',
-        'file' => 'varcha(255)',
+        'file' => 'varchar(255)',
         'files' => 'text',
         'select' => 'varchar(255)',
         'radio' => 'varchar(255)',
@@ -62,33 +62,10 @@ class Orm extends MY_Controller
         'date' => 'date',
         'datetime' => 'datetime',
         'timestamp' => 'timestamp',
-        'area' => 'int(7)',
-        'road' => 'int(7)',
-        'street' => 'int(7)',
-        'company' => 'int(7)',
-        'shopNo' => 'int(7)',
-        'yetai' => 'varchar(255)',
-        'houseAttr' => 'int(7)',
-        'ownpeople' => 'int(7)'
+        'htmlEditor' =>'text'
     );
 
     public $dataTypeName = array(
-        'shoptype' => '商铺类型',
-        'shopattr' => '商铺性质',
-        'shopfrom' => '商铺来源',
-        'shoparea' => '商圈',
-        'yetai' => '业态',
-        'level' => '评级',
-        'hetongtype' => '合同性质',
-        'housetype' => '房屋性质',
-        'ownpeople' => '产权人',
-        'area' => '区域',
-        'road' => '自然路段',
-        'street' => '街道',
-        'company' => '所属单位',
-        'cid' => '隐性所属',
-        'shopNo' => '商铺编号',
-        'houseAttr' => '房屋性质'
     );
 
     public $sqlType = array(
@@ -110,15 +87,7 @@ class Orm extends MY_Controller
         'date' => 'date',
         'datetime' => 'datetime',
         'timestamp' => 'timestamp',
-        'area' => 'int',
-        'road' => 'int',
-        'street' => 'int',
-        'company' => 'int',
-        'shopNo' => 'int',
-        'yetai' => 'int',
-        'houseAttr' => 'int',
-        'ownpeople' => 'int',
-        'money'=>'float'
+        'htmlEditor'=>'text'
     );
 
     public function index()
