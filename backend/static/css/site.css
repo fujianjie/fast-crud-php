@@ -1,4 +1,4 @@
-/* 
+/*
     Created on : 2016-11-1, 11:19:31
     Author     : jjfu
 */
@@ -356,8 +356,14 @@ a.fileLink span {
     margin-top: 8px;
     margin-right: 18px;
     margin-left: 5px;
-}
 
+}
+#sidebar-toggle{
+    border:0px;
+    box-shadow: none;
+    background: #f8f8f8;
+    outline: none;
+}
 .control-label, td, th {
     word-break: keep-all;
     white-space: nowrap;
