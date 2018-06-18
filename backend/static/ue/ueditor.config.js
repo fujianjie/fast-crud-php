@@ -84,14 +84,14 @@
         //如果自定义，最好给p标签如下的行高，要不输入中文时，会有跳动感
         //,initialStyle:'p{line-height:1em}'//编辑器层级的基数,可以用来改变字体等
 
-        ,iframeCssUrl: '/static/css/bootstrap.min.css' //给编辑区域的iframe引入一个css文件
+        ,iframeCssUrl: '' //给编辑区域的iframe引入一个css文件
 
         //indentValue
         //首行缩进距离,默认是2em
         //,indentValue:'2em'
 
-        ,initialFrameWidth:375  //初始化编辑器宽度,默认1000
-        ,initialFrameHeight:627  //初始化编辑器高度,默认320
+        ,initialFrameWidth:ueWidth  //初始化编辑器宽度,默认1000
+        ,initialFrameHeight:400  //初始化编辑器高度,默认320
 
         //,readonly : false //编辑器初始化结束后,编辑区域是否是只读的，默认是false
 

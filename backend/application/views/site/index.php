@@ -9,11 +9,15 @@
         <link rel="stylesheet" href="<?php echo $staticUrl; ?>/static/css/dashboard.css"/>
     </head>
     <body>
-    <?php $this->load->view('common/topnav'); ?>
+
     <div class="container-fluid">
         <div class="row">
-            <?php $this->load->view('common/sidebar'); ?>
-
+            <?php
+                $this->load->view('common/sidebar');
+            ?>
+            <?php
+                $this->load->view('common/topnav');
+            ?>
             <iframe class="main" id="iframe" width="100%" height="100%" name="iframe" frameborder="0" scrolling="no"
                     src="<?php echo $nowUrl; ?>"></iframe>
             <div class="clearfix"></div>

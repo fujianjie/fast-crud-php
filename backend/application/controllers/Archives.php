@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Archives extends MY_Data
 {
+    public $listSql  = false;
 
     public function __construct()
     {
@@ -34,10 +35,12 @@ class Archives extends MY_Data
             "filename" => "文件名",
             "template" => "独立模版页",
             "isDelete" => "是否删除",
+            "body"=>"文章内容",
             "hr1"=>"基本信息",
             "hr2"=>"附件",
             "hr3"=>"SEO",
-            "hr4"=>"其它"
+            "hr4"=>"其它",
+            "hr5"=>"内容"
         );
         $this->keyTypeList = array(
             "id" => "middleText",
@@ -58,10 +61,12 @@ class Archives extends MY_Data
             "filename" => "files",
             "template" => "middleText",
             "isDelete" => "middleText",
+            "body"=>"htmlEditor",
             "hr1"=>"hrFirst",
             "hr2"=>"hr",
             "hr3"=>"hr",
-            "hr4"=>"hr"
+            "hr4"=>"hr",
+            "hr5"=>"hr"
         );
         $this->keyVerifyList = array(
             "id" => "numeric",
@@ -81,22 +86,18 @@ class Archives extends MY_Data
             "description" => "",
             "filename" => "",
             "template" => "",
-            "isDelete" => ""
+            "isDelete" => "",
+            "body"=>"",
         );
         //关键词模糊搜索 searchType = total   分词搜索  searchType = key
-        //$this->searchType= 'key';
+        $this->searchType= 'key';
         $this->searchKey = array(
             "typeid",
-            "title",
-            "shorttitle",
-            "writer",
-            "source",
-            "keywords",
-            "description"
+            "title"
         );
         $this->keySqlType = array(
             "id" => "int",
-            "typeid" => "varchar",
+            "typeid" => "int",
             "sortrank" => "varchar",
             "click" => "varchar",
             "title" => "varchar",
@@ -112,64 +113,29 @@ class Archives extends MY_Data
             "description" => "varchar",
             "filename" => "varchar",
             "template" => "varchar",
-            "isDelete" => "varchar"
+            "isDelete" => "varchar",
+            "body"=>"varchar"
         );
         $this->keyImportant = array();
-        $this->detailKey = array(
 
+        $this->detailKey = array(
+            "hr1",
             "title",
-            "shorttitle",
             "typeid",
-            "sortrank",
-            "click",
-            "color",
-            "writer",
-            "source",
-            "litpic",
-            "pubdate",
-            "senddate",
-            "keywords",
-            "lastpost",
-            "description",
-            "filename",
-            "template"
         );
         $this->addKey = array(
             "hr1",
             "title",
             "typeid",
-            "pubdate",
-            "hr2",
-            "litpic",
-            "filename",
-            "hr3",
-            "keywords",
-            "description",
-            "hr4",
-            "shorttitle",
-            "writer",
-            "source",
-            "color",
-            "sortrank",
-            "template",
+            "hr5",
+            "body"
         );
         $this->editKey = array(
-            "typeid",
-            "sortrank",
-            "click",
+            "hr1",
             "title",
-            "shorttitle",
-            "color",
-            "writer",
-            "source",
-            "litpic",
-            "pubdate",
-            "senddate",
-            "keywords",
-            "lastpost",
-            "description",
-            "filename",
-            "template",
+            "typeid",
+            "hr5",
+            "body"
         );
         $this->listKey = array(
             "id",
@@ -177,7 +143,8 @@ class Archives extends MY_Data
             "title",
             "source",
             "click",
-            "pubdate"
+            "pubdate",
+            "sortrank"
         );
         $this->keySelectData = array(
             "typeid" => "",
@@ -189,6 +156,84 @@ class Archives extends MY_Data
         //关闭排序
         $this->listSortOpen = false;
         $this->load->model('ArchivesData');
+        $this->load->model('CategoryData');
+        $this->categorySelect = $this->CategoryData->sortSelect();
+        $this->keySelectData['typeid'] =  $this->categorySelect;
+    }
+
+    public $body;
+
+    public $categorySelect;
+
+    public $addOnKey = array(
+        "title",
+        "shorttitle",
+        "typeid",
+        "sortrank",
+        "click",
+        "color",
+        "writer",
+        "source",
+        "litpic",
+        "pubdate",
+        "senddate",
+        "keywords",
+        "lastpost",
+        "description",
+        "filename",
+        "template"
+    );
+
+    public function _beforeAddSave(&$data)
+    {
+        parent::_beforeAddSave($data);
+        $this->body = $data['body'];
+        unset($data['body']);
+        $data['pubdate'] = date('Y-m-d');
+    }
+
+    public function _afterAddSave(&$data)
+    {
+        $save = array(
+            'aid'=>$data['id'],
+            'body'=>$this->body,
+            'typeid'=>$data['typeid']
+        );
+        $this->db->insert('we_addonarticle',$save);
+    }
+
+    public function _beforeDetail(&$data)
+    {
+
+        $query =  $this->db->select('body')->from('we_addonarticle')->where('aid',$data['data']['id'])->limit(1)->get();
+        $row = $query->row_array();
+        $data['data']['body'] = $row['body'];
+    }
+
+    public function _beforeEdit(&$data)
+    {
+        $query =  $this->db->select('body')->from('we_addonarticle')->where('aid',$data['data']['id'])->limit(1)->get();
+        $row = $query->row_array();
+        $data['data']['body'] = $row['body'];
+    }
+
+    public function _beforeEditSave(&$data)
+    {
+        if($this->input->post('body')!== NULL){
+            $this->body = $data['body'];
+            unset($data['body']);
+        }
+    }
+
+    public function _afterEditSave(&$data)
+    {
+        if($this->input->post('body')!== NULL) {
+            $save = array(
+                'body' => $this->body
+            );
+            $this->db->where('aid', $data['id'])->limit(1);
+            $this->db->update('we_addonarticle', $save);
+        }
     }
 
 }
