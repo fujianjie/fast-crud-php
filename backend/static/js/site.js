@@ -755,6 +755,18 @@ $.fn.extend({
             i.width(winW - 5);
         }
         var s = $('#sidebar');
+        var sW = s.width();
+
+        var topNav = $("#topnav");
+        if(s.css('display') == 'none'){
+            topNav.css('width',winW + 'px').css('position','relative');
+            topNav.css('left','0px');
+        }else{
+            topNav.css('width',(winW - sW -40) + 'px').css('position','relative');
+            topNav.css('left',(sW+40)+'px');
+        }
+
+
         if (winW > 415) {
             if (s.css('display') == 'none') {
                 i.width(winW - 40);
@@ -763,6 +775,7 @@ $.fn.extend({
                 i.css('left', '250px');
             }
         }
+
     },
     pageJump: function () {
         var d = $("#pageJump");
@@ -815,7 +828,7 @@ $.fn.extend({
             }
         });
     },
-   
+
     userSearch: function () {
         var input = $('input[selectType=userSearch]');
         var select = input.parents('.form-group').find('select[selectType=userSearch]');
@@ -867,7 +880,7 @@ $.fn.extend({
 
 
     },
-    
+
     webUserSearch: function () {
         var input = $('input[selectType=webUserSearch]');
         var select = input.parents('.form-group').find('select[selectType=webUserSearch]');
@@ -1028,7 +1041,7 @@ $.fn.extend({
             resetCol();
         }
     },
-    
+
     hrFloat: function () {
         if ($('body').find('.hrInfo').length > 0) {
             var height = 25 * ($('body').find('.hrInfo').length + 1);
@@ -1054,7 +1067,7 @@ $.fn.extend({
             });
         }
     },
-    
+
     loadModal: function (name, action) {
         var url = '/' + name + '/' + action + '?dontsaveurl=1';
         var id = name + action;

@@ -1,9 +1,11 @@
-/* 
+/*
     Created on : 2016-11-1, 11:19:31
     Author     : jjfu
 */
 body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
     font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    color:#535b69;
+
 }
 th{
         font-weight: normal;
@@ -42,25 +44,31 @@ table.table tbody > tr > td {
     line-height: 36px;
 }
 
+table.table tbody >tr{
+    border-bottom: 1px solid #f0f1f2;
+}
+
 table.table thead {
-    background-color: #3e5266;
-    color: #fff;
+    background-color: #f8f8f9;
+    color: #626775;
 }
 
 table.table thead th {
-    border-bottom: 2px solid #ddd;
-    background-color: #3e5266;
+    border-bottom: 1px solid #f0f1f2;
+    background-color: #f8f8f9;
     height: 50px;
     padding: 0;
     line-height: 50px;
+
 }
 
 table.table tbody td {
     padding: 0;
+    color:#707581;
 }
 
 table.table tbody tr:nth-child(odd) {
-    background: #F9F9F9;
+
 }
 
 table.table tbody tr td:first-child {
@@ -78,7 +86,7 @@ table.table.td-no-border.table.table tbody > tr > td {
 
 table td.option a.btn {
     padding: 0px 3px 3px 3px;;
-    font-size: 20px;
+    font-size: 12px;
     border: 0 !important;
     background: none !important;
     box-shadow: none !important;
@@ -91,6 +99,27 @@ table td.option a.btn-default {
     text-shadow: none;
     box-shadow: none !important;
     -webkit-box-shadow: none;
+}
+
+.pagination{
+
+}
+.pagination li{
+    margin:0px 4px 0px 4px;
+    display: inline-block;
+}
+.pagination>li>a, .pagination>li>span{
+    display: inline-block;
+    line-height: 24px;
+    padding:0px 8px 0px 8px;
+    border-radius: 3px;
+    border:1px solid #f0f0f2;
+    color:#797d8a;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background: #fff;
+    border:1px solid #4ea3ff;
+    color:#4ea3ff;
 }
 
 .screen-hide {
@@ -144,7 +173,7 @@ td a, th a {
 .nav > li > a {
     padding: 15px 15px;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     /* Rectangle: */
 
     /* icon-menu-rant: */
@@ -156,7 +185,7 @@ td a, th a {
 }
 
 .sidebar {
-    background-color: #2a3f54;
+    background-color: #031529;
     width: 230px;
 }
 
@@ -177,7 +206,7 @@ td a, th a {
 .sidebar .nav li.son.rect {
     width: 5px;
     position: absolute;
-    background: #26B99A;
+    background: #268fff;
     top: 0;
     right: 0;
 }
@@ -230,7 +259,6 @@ body {
 #iframe {
     border: 1px solid #e6e9ed;
     background-color: #fff;
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -292,7 +320,7 @@ body {
 }
 
 a.fileLink {
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
     text-decoration: none;
 }
@@ -328,10 +356,10 @@ a.fileLink span {
 }
 
 .pageTotal, .pageJump {
-    width: 100px;
-    height: 34px;
-    vertical-align: middle;
-    line-height: 34px;
+    width: auto;
+    height: 26px;
+    vertical-align: top;
+    line-height: 26px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -341,6 +369,20 @@ a.fileLink span {
     width: 45px;
     margin-left: 5px;
     margin-right: 5px;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: top;
+}
+.pageJump .btn-info{
+    line-height: 12px;
+    vertical-align: top;
+}
+
+.form-control{
+    height: 28px;
+    border:1px solid #e5e6e8;
+    border-radius: 2px;
+    color:#787d8a;
 }
 
 .yetaiLabel {
@@ -356,8 +398,14 @@ a.fileLink span {
     margin-top: 8px;
     margin-right: 18px;
     margin-left: 5px;
-}
 
+}
+#sidebar-toggle{
+    border:0px;
+    box-shadow: none;
+    background: #fff;
+    outline: none;
+}
 .control-label, td, th {
     word-break: keep-all;
     white-space: nowrap;
@@ -396,6 +444,16 @@ a.fileLink span {
     margin: 0;
 }
 
+.searchBlock button,.searchBlock a.btn{
+    margin-left:5px !important;
+    margin-right:5px !important;
+    height: 28px !important;
+    padding-top:0;
+    padding-bottom:0;
+    line-height: 28px;
+
+}
+
 .searchSelect .col-sm-9 .col-sm-6:first-child {
     padding-left: 0px;
 }
@@ -405,11 +463,11 @@ a.fileLink span {
     padding-right: 0;
 }
 
-.header-search .form-control{border-color:#26B99A;}
+.header-search .form-control{border-color:#268fff;}
 .header-search .btn-search{
     background: #ffffff;
-    border: 1px solid #26B99A;
-    color:#26B99A;
+    border: 1px solid #268fff;
+    color:#268fff;
     outline: none;
 }
 .header-search .btn-search:hover{
@@ -478,7 +536,7 @@ a.fileLink span {
 }
 
 .hrBlock .control-label {
-    line-height: 45px;
+    line-height: 40px;
 }
 
 .hrBlock:after {
@@ -523,7 +581,7 @@ a.fileLink span {
 
 .hrBlock .form-group.imageInput .col-sm-3 , .hrBlock .form-group.fileInput .col-sm-3 {
     width: 17.5%;
-    height:250px;
+    min-height: 50px;
 }
 
 
@@ -531,7 +589,7 @@ a.fileLink span {
 .hrBlock .form-group.imageInput .col-sm-9 , .hrBlock .form-group.fileInput .col-sm-9  {
     width: 82.5%;
     min-width: 500px;
-    height: 250px;
+    min-height: 50px;
 }
 
 
@@ -730,20 +788,16 @@ a.fileLink span {
 }
 
 .detailPage .hrBlock {
-    border: 1px solid #ccc;
     border-radius: 0;
     padding: 0;
 }
 
 .detailPage .hrBlock .form-group {
-    border: 1px solid #e4e4e4;
-    line-height: 50px;
+    line-height: 36px;
 }
 
 .detailPage .hrBlock .form-group label {
-    background: #f9f9f9;
     margin-bottom: 0;
-    border-right: 1px solid #e4e4e4;
     padding-right: 10px;
 }
 
@@ -797,9 +851,8 @@ table.table-bordered{
     font-size: 20px;
     color: #666666;
     letter-spacing: 0;
-    /* bg: */
-    background-image: linear-gradient(-180deg, #FFFFFF 0%, #F7F7F7 100%);
     box-shadow: 0 -4px 10px 0 rgba(0, 0, 0, 0.50);
+    background: #fff;
 }
 
 .navbar-default .navbar-brand {
@@ -826,7 +879,7 @@ table.table-bordered{
     padding-left: 0;
     padding-right: 0;
     height: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 #page-header .list-name .prevPage {
@@ -835,8 +888,8 @@ table.table-bordered{
     top: 0px;
     display: block;
     width: 110px;
-    height: 40px;
-    line-height: 40px;
+    height: 34px;
+    line-height: 34px;
     padding: 0;
     text-align: center;
 
@@ -845,40 +898,47 @@ table.table-bordered{
 .btn-default {
     /* Rectangle 2: */
     background: #FFFFFF;
-    border: 1px solid #26B99A;
-    border-radius: 6px !important;
-    color: #26B99A;
-    border-color: #26B99A;
+    border: 1px solid #268fff;
+    border-radius: 4px !important;
+    color: #268fff;
+    border-color: #268fff;
 }
 
 .btn-default:active, .btn-default:hover {
-    color: #26B99A;
-    background: #FFFFFF;
-    border-color: #26B99A;
+    color: #268fff;
+    background: #e6f2ff;
+    border-color: #268fff;
     font-weight: bold;
-    border: 1px solid #26B99A;
-    border-radius: 6px;
+    border: 1px solid #268fff;
+    border-radius: 4px;
+}
+.btn-default:active{
+    background: #cce5ff;
 }
 
 td .btn-info ,td .btn-warning{
-        color:#26B99A;
+        color:#268fff;
 }
 
 td .btn-info:hover , td .btn-warning:hover{
-        color:#26B99A;
+        color:#268fff;
 }
 
 .btn-info {
-    background: #26B99A;
+    background: #268fff;
     color: #fff;
-    border-radius: 6px !important;
+    border-radius: 4px !important;
 }
 
 .btn-info:hover, .btn-info:active {
-    background: #26B99A;
+    background: #4ca0ff;
     color: #fff;
     font-weight: bold;
-    border-radius: 6px !important;
+    border-radius: 4px !important;
+}
+
+.btn-info:active {
+    background: #0076ff;
 }
 
 .listKeySearch.searchBlock .form-group .col-sm-5 {
@@ -886,6 +946,8 @@ td .btn-info:hover , td .btn-warning:hover{
     padding-left: 0;
     padding-right: 0;
     text-align: right;
+    padding-top:0;
+    line-height: 28px;
 }
 
 .listKeySearch.searchBlock .form-group .col-sm-7 {
@@ -949,7 +1011,7 @@ ul.listNavToggle li.selected a{
 .extraInput{line-height: 45px; padding-top: 0 !important;}
 
 .eachMultipleShopSn{
-    border:1px solid #26B99A;
+    border:1px solid #268fff;
     display: inline-block;
     position: relative;
     border-radius: 6px;
@@ -968,7 +1030,7 @@ ul.listNavToggle li.selected a{
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
 }
-span.badge{background-color:#26B99A;}
+span.badge{background-color:#268fff;}
 
 
 @media (min-width: 1400px) {
